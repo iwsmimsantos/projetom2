@@ -17,9 +17,11 @@ module.exports = {
       return res.serverError(err);
     }
   },
+  
+  //Temos um create na linha 21
   create: async (req, res) => {
     try {
-      const hero = await Hero.new(req.body).fetch();
+      const hero = await Hero.create(req.body).fetch(); // De acordo com a biblioteca sails .create() Cria um registro no banco de dados, e a função que tá sendo chamado logo no inicio é um create
       return res.json(hero);
     } catch (err) {
       return res.serverError(err);
